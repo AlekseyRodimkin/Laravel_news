@@ -1,5 +1,8 @@
 @extends('layouts.layout')
-@section('title')Контакты@endsection
+
+@section('title')
+    Контакты
+@endsection
 
 @section('content')
     <h3>Обратиться</h3>

@@ -1,5 +1,8 @@
 @extends('layouts.layout')
-@section('title')О нас@endsection
+
+@section('title')
+    О нас
+@endsection
 
 @section('content')
     <h2>

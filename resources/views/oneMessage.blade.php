@@ -3,7 +3,7 @@
 @section('title'){{ $data->name }}@endsection
 
 @section('content')
-    <p><a href='contacts/userMessages'>История обращений</a></p>
+    <p><a href="{{ route('contacts-usermessages') }}">История обращений</a></p>
     <div class = 'alert alert-info' style = "border-radius: 30px;">
         <h3>{{ $data->theme }}</h3>
 
