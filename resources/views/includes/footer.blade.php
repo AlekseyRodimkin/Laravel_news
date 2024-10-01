@@ -7,9 +7,9 @@
     </a>
 
     <ul class="nav col-md-4 justify-content-end">
-      <li class="nav-item"><a href="{{ url('/') }}" class="nav-link px-2 text-body-secondary">Главная</a></li>
-      <li class="nav-item"><a href="{{ url('contact') }}" class="nav-link px-2 text-body-secondary">Контакты</a></li>
-      <li class="nav-item"><a href="{{ url('about') }}" class="nav-link px-2 text-body-secondary">О нас</a></li>
+      <li class="nav-item"><a href="{{ route('home') }}" class="nav-link px-2 text-body-secondary">Главная</a></li>
+      <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link px-2 text-body-secondary">Контакты</a></li>
+      <li class="nav-item"><a href="{{ route('about') }}" class="nav-link px-2 text-body-secondary">О нас</a></li>
     </ul>
   </footer>
 </div>

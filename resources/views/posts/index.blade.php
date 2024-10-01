@@ -1,21 +1,17 @@
 @extends('layouts.app')
 
-@section('title', 'Главная')
-
+@section('title', 'Лента')
 
 @section('content')
     <div class="container my-5">
-        <h1 class="text-center mb-4">Последние новости</h1>
         <div class="row">
             @foreach($posts as $post)
                 @include("includes.post.item", ["post" => $post])
             @endforeach
         </div>
+
+        <div class="d-flex justify-content-center mt-4">
+            {{ $posts->links('pagination::bootstrap-4') }}
+        </div>
     </div>
-@endsection
-
-
-@section('rightSpBlok')
-    @parent
-        <p>Текст после меню главной страницы</p>
 @endsection
