@@ -13,18 +13,30 @@
                 <div class='form-group'>
                     <label for='name'>Имя:</label>
                     <input type='text' name='name' id='name' placeholder='Введите имя' class='form-control'>
+                    @error('name')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class='form-group'>
                     <label for='email'>Ваш email:</label>
                     <input type='text' name='email' id='email' placeholder='Email@mail.ru' class='form-control'>
+                    @error('email')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class='form-group'>
                     <label for='theme'>Тема обращения:</label>
                     <input type='text' name='theme' id='theme' placeholder='Тема' class='form-control'>
+                    @error('theme')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class='form-group'>
                     <label for='message'>Текст обращения:</label>
                     <textarea type='text' name='message' id='message' class='form-control'></textarea>
+                    @error('message')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
                 <button type='submit' class='btn btn-success'>Отправить</button>
             </form>

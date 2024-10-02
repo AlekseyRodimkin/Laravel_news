@@ -42,3 +42,16 @@ Route::get('/contacts/userMessages/{id}/delete', 'contactController@delete')->na
 Route::get('/posts', 'PostController@index')->name('posts.index');
 
 Route::get('/posts/{id}', 'PostController@show')->name('posts.show');
+
+
+Route::middleware("auth")->group(function () {
+    Route::get('/logout', 'AuthController@logout')->name('logout');
+});
+
+Route::middleware("guest")->group(function () {
+    Route::get('/register', 'AuthController@showRegisterForm')->name('register');
+    Route::post('/register_process', 'AuthController@register')->name('register_process');
+
+    Route::get('/login', 'AuthController@showLoginForm')->name('login');
+    Route::post('/login_process', 'AuthController@login')->name('login_process');
+});
