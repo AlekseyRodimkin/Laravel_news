@@ -3,15 +3,13 @@
 @section('title', 'Лента')
 
 @section('content')
-    <div class="container my-5">
-        <div class="row">
-            @foreach($posts as $post)
-                @include("includes.post.item", ["post" => $post])
-            @endforeach
-        </div>
+    <div class="row">
+        @foreach($posts as $post)
+            @include("includes.post.item", ["post" => $post])
+        @endforeach
+    </div>
 
-        <div class="d-flex justify-content-center mt-4">
-            {{ $posts->links('pagination::bootstrap-4') }}
-        </div>
+    <div class="d-flex justify-content-center mt-4">
+        {{ $posts->links('pagination::bootstrap-4') }}
     </div>
 @endsection

@@ -1,5 +1,5 @@
-@extends('layouts.layout')
-@section('title')Редактирование@endsection
+@extends('layouts.app')
+@section('title', 'Редактирование')
 
 @section('content')
     <form action="{{ route('contact-update', $data->id) }}" method="post">
@@ -23,7 +23,7 @@
         <button type='submit' class='btn btn-warning'>Сохранить</button>
     </form>
     <br>
-    <p><a href='contacts/userMessages'>История обращений</a></p>
+    <p><a href="{{ route('contacts-usermessages') }}">История обращений</a></p>
 @endsection
 
 

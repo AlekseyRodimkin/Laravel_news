@@ -1,6 +1,6 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 
-@section('title')Ваши обращения@endsection
+@section('title', "Ваши обращения")
 
 @section('content')
     @foreach($data as $each)

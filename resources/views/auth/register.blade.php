@@ -3,7 +3,7 @@
 @section('title', 'Регистрация')
 
 @section('content')
-    <div class="container d-flex align-items-center justify-content-center" style="min-height: 80vh;">
+    <div class="container d-flex align-items-center justify-content-center">
         <div class="col-md-6 col-lg-4">
             <div class="card shadow-lg p-4 rounded">
                 <h5 class="text-center mb-4">Регистрация</h5>

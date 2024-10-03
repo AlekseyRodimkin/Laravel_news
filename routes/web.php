@@ -46,6 +46,7 @@ Route::get('/posts/{id}', 'PostController@show')->name('posts.show');
 
 Route::middleware("auth")->group(function () {
     Route::get('/logout', 'AuthController@logout')->name('logout');
+    Route::post('/posts/comment/{id}', 'PostController@comment')->name('comment');
 });
 
 Route::middleware("guest")->group(function () {
@@ -54,4 +55,7 @@ Route::middleware("guest")->group(function () {
 
     Route::get('/login', 'AuthController@showLoginForm')->name('login');
     Route::post('/login_process', 'AuthController@login')->name('login_process');
+
+    Route::get('/forgot', 'AuthController@showForgotForm')->name('forgot');
+    Route::post('/forgot_process', 'AuthController@forgot')->name('forgot_process');
 });
