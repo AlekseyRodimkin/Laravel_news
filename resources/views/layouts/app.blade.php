@@ -9,13 +9,9 @@
 </head>
 <body>
     @include('includes.header')
-
     <div class='container mt-5'>
-
         @include('includes.serviceMessages')
-
         @yield('content')
-
     </div>
     @include('includes.footer')
     <script src="/js/app.js"></script>

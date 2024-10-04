@@ -5,10 +5,12 @@
 
 @section('content')
     <div class="container my-5">
-        <h1 class="text-center mb-4">Последние новости</h1>
+        <h5 class="text-center mb-4">Последние новости</h5>
         <div class="row">
             @foreach($posts as $post)
-                @include("includes.post.item", ["post" => $post])
+                <div class="col-md-6 mb-4">
+                    @include("includes.post.item", ["post" => $post])
+                </div>
             @endforeach
         </div>
     </div>

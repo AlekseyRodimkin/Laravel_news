@@ -53,7 +53,7 @@
             {{ $password }}
         </div>
         <div class="mt-4">
-            <a href="mysite/login">Войти/a>
+            <a href="mysite/login">Войти</a>
         </div>
     </div>
 

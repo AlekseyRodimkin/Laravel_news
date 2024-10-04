@@ -5,7 +5,9 @@
 @section('content')
     <div class="row">
         @foreach($posts as $post)
-            @include("includes.post.item", ["post" => $post])
+            <div class="col-md-12 mb-4">
+                @include("includes.post.item", ["post" => $post])
+            </div>
         @endforeach
     </div>
 

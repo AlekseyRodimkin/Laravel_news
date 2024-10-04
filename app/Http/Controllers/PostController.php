@@ -2,22 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Post;
+use App\Events\CommentCreated;
 use App\Http\Requests\CommentForm;
+use App\Models\Post;
+use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function index() {
-        $posts = Post::orderBy("created_at", "DESC")->paginate(4);
+    public function index()
+    {
+        $posts = Post::orderBy("created_at", "DESC")->paginate(15);
 
-        return view('posts.index', ["posts" => $posts]);
+        return view('posts.index', [
+            "posts" => $posts,
+        ]);
     }
 
-    public function show($id) {
-    $post = Post::findOrFail($id);
+    public function show($id)
+    {
+        $post = Post::with("comments.user")->findOrFail($id);
 
-    return view('posts.show', ["post" => $post]);
+        return view('posts.show', [
+            "post" => $post,
+        ]);
     }
 
     public function comment($id, CommentForm $request)

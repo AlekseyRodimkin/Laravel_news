@@ -47,6 +47,7 @@ Route::get('/posts/{id}', 'PostController@show')->name('posts.show');
 Route::middleware("auth")->group(function () {
     Route::get('/logout', 'AuthController@logout')->name('logout');
     Route::post('/posts/comment/{id}', 'PostController@comment')->name('comment');
+    Route::get('/profile', 'ProfileController@show')->name('profile');
 });
 
 Route::middleware("guest")->group(function () {

@@ -13,7 +13,7 @@ class AuthController extends Controller
 {
     public function showLoginForm()
     {
-        return view('auth.login');
+        return view("auth.login");
     }
 
     public function login(Request $request)
@@ -24,26 +24,27 @@ class AuthController extends Controller
         ]);
 
         if(auth("web")->attempt($data)) {
-            return redirect(route('home'));
+            return redirect(route("home"));
         }
 
-        return redirect(route("login"))->withErrors(["email" => "Пользователь не найден, либо email введен не правильно"]);
+        return redirect(route("login"))->withErrors(["email" => "Пользователь не найден, либо данные введены не правильно"]);
     }
 
     public function logout()
     {
         auth("web")->logout();
-       return redirect(route("home"));
+
+        return redirect(route("home"));
     }
 
     public function showRegisterForm()
     {
-        return view('auth.register');
+        return view("auth.register");
     }
 
     public function showForgotForm()
     {
-        return view('auth.forgot');
+        return view("auth.forgot");
     }
 
     public function forgot(Request $request)
@@ -53,19 +54,21 @@ class AuthController extends Controller
         ]);
 
         $user = User::where(["email" => $data["email"]])->first();
+
         $password = uniqid();
+
         $user->password = bcrypt($password);
         $user->save();
 
         Mail::to($user)->send(new ForgotPassword($password));
 
-        return redirect(route("forgot"))->with('success', 'Ваш новый пароль отправлен вам на почту');
+        return redirect(route("home"));
     }
 
     public function register(Request $request)
     {
         $data = $request->validate([
-            "name" => ["required", "string", "unique:users,name"],
+            "name" => ["required", "string"],
             "email" => ["required", "email", "string", "unique:users,email"],
             "password" => ["required", "confirmed"]
         ]);
@@ -73,12 +76,15 @@ class AuthController extends Controller
         $user = User::create([
             "name" => $data["name"],
             "email" => $data["email"],
-            "password" => bcrypt( $data["password"])
+            "password" => bcrypt($data["password"])
         ]);
 
         if($user) {
+            //event(new Registered($user));
+
             auth("web")->login($user);
         }
+
         return redirect(route("home"));
     }
 }
